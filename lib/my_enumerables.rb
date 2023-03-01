@@ -12,6 +12,12 @@ module Enumerable
     end
     self
   end
+
+  def my_select
+    selected = []
+    my_each { |i| selected << i if yield(i) }
+    selected
+  end
 end
 
 # You will first have to define my_each
