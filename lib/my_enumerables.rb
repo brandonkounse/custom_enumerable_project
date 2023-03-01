@@ -52,7 +52,15 @@ module Enumerable
     bool
   end
 
-  def my_count; end
+  def my_count
+    count = 0
+    if block_given?
+      my_each { |i| count += 1 if yield(i) }
+    else
+      count = self.length
+    end
+    count
+  end
 
   def my_map; end
 
