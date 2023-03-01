@@ -18,6 +18,16 @@ module Enumerable
     my_each { |i| selected << i if yield(i) }
     selected
   end
+
+  def my_all?
+    bool = true
+    my_each do |i|
+      if yield(i) == false
+        bool = false
+      end
+    end
+    bool
+  end
 end
 
 # You will first have to define my_each
