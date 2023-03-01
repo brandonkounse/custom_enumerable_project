@@ -28,6 +28,24 @@ module Enumerable
     end
     bool
   end
+
+  def my_any?
+    bool = false
+    my_each do |i|
+      if yield(i) == true
+        bool = true
+      end
+    end
+    bool
+  end
+
+  def my_none?; end
+
+  def my_count; end
+
+  def my_map; end
+
+  def my_inject; end
 end
 
 # You will first have to define my_each
