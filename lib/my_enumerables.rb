@@ -39,7 +39,18 @@ module Enumerable
     bool
   end
 
-  def my_none?; end
+  def my_none?
+    bool = []
+    my_each do |i|
+      bool << yield(i)
+    end
+    if bool.my_any? { |i| i == true }
+      bool = false
+    else
+      bool = true
+    end
+    bool
+  end
 
   def my_count; end
 
