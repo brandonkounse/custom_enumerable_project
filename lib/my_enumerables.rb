@@ -62,7 +62,11 @@ module Enumerable
     count
   end
 
-  def my_map; end
+  def my_map
+    new_arr = []
+    my_each { |i| new_arr << yield(i) }
+    new_arr
+  end
 
   def my_inject; end
 end
