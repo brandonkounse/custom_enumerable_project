@@ -68,7 +68,11 @@ module Enumerable
     new_arr
   end
 
-  def my_inject; end
+  def my_inject(initial_value)
+    accumulator = initial_value
+    my_each { |i| accumulator = yield(accumulator, i) }
+    accumulator
+  end
 end
 
 # You will first have to define my_each
